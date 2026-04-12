@@ -3,6 +3,8 @@ description: Projects that turn messy data into clear insights, built with Pythi
 baseurl: "" 
 url: https://melina-diaz.github.io/
 
+permalink: /:title/
+version: v1.2.0
 # Build settings
 theme: minima
 

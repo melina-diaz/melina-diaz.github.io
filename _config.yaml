@@ -17,7 +17,7 @@ theme: minima
 # their entries' file path in the `include:` list.
 #
 
-gems:
+plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   

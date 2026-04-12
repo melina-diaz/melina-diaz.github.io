@@ -27,8 +27,8 @@ Compressed 10,000 word frequencies using PCA to 2 or 3 components, then plotted 
 <br>
 
 ### Interactive Visualization
-{% include_relative news_plotly_2D_scatter.html %} 
-{% include_relative news_plotly_3D_scatter.html %} 
+{% include news_plotly_2D_scatter.html %} 
+{% include news_plotly_3D_scatter.html %} 
 
 Each word is a point, its position shows how it relates to every category reference point, which are different colors. Size reflects word frequency.
 <br>

@@ -42,5 +42,5 @@ Each word is a point, its position shows how it relates to every category refere
 *Zoom in* to see more detail.
 <br>
 <br>
-**Source:** [Labelled News Articles] (https://www.kaggle.com/datasets/kotartemiy/topic-labeled-news-dataset)
+**Source:** [Labelled News Articles](https://www.kaggle.com/datasets/kotartemiy/topic-labeled-news-dataset)
 {% include_relative news_plotly_2D_scatter.html %} 

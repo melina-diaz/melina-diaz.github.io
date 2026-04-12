@@ -3,14 +3,16 @@ layout: post
 title: What makes news? Uncovering word patterns across categories using NLP
 date: 2026-04-11
 ---
-
 ## Why does news language matter?
 Every news category has its own vocabulary fingerprint. But which words do publishers actually lean on to capture attention and do those words differ across categories?
 <br>
 <br>
 This project quantifies those patterns by mapping 100,000 news headlines into a shared language space, revealing how Science, Business, Entertainment, Health, Sports, World Politics, and National Politics establish their own distinct corner.
 <br>
-
+<br>
+*This post contains a summary and interactive visualizations of the project. For the code and more in-depth explanations, please see [my Github](https://github.com/melina-diaz/NewsArticles). Thank you!*
+<br>
+<br>
 ## From raw headlines to visualization
 #### 1. Text cleaning & preprocessing
 Removed stopwords, URLs, punctuation, uppercase, and numeric characters from raw text using NLTK and regex.
@@ -22,7 +24,7 @@ Combined all headlines per topic and counted word frequencies. Words appearing f
 Normalize word frequency for each category to balance a dataset that's biased to certain categories. Include each category word ("Science", "Business", etc) as reference points.
 
 #### 4. Dimensionality reduction & visualization
-Compressed 10,000 word frequencies using PCA to 2 or 3 components, then plotted each word in a Plotly scatterplot.
+Compressed 10,000 word frequencies using PCA to 3 components, then plotted each word in a Plotly scatterplot.
 
 <br>
 
@@ -42,4 +44,6 @@ Each word is a point, its position shows how it relates to every category refere
 *Zoom in* to see more detail.
 <br>
 <br>
-**Source:** [Labelled News Articles](https://www.kaggle.com/datasets/kotartemiy/topic-labeled-news-dataset)
+
+#### Sources: 
+Dataset: [Labelled News Articles](https://www.kaggle.com/datasets/kotartemiy/topic-labeled-news-dataset)

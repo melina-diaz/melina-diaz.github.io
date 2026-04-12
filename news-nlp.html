@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News NLP — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F5F0;
+      --surface: #EFECE5;
+      --surface2: #E5E1D8;
+      --ink: #1A1814;
+      --ink2: #5A5650;
+      --ink3: #9A9590;
+      --accent: #C84B2F;
+      --accent-light: #F5E8E4;
+      --border: rgba(26,24,20,0.12);
+      --border-strong: rgba(26,24,20,0.22);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+      --radius: 6px;
+      --radius-lg: 12px;
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink2);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .back-link {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--ink2); }
+    .hero-meta-dot { color: var(--ink3); font-size: 10px; }
+    .hero-category {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--ink2);
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--surface);
+      color: var(--ink2);
+      border: 1px solid var(--border);
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0;
+      width: fit-content;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .stat-cell {
+      padding: 1rem 1.5rem;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* TWO-COL LAYOUT */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    /* SIDEBAR */
+    .sidebar { padding-top: 0.25rem; }
+    .sidebar-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .sidebar-block-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--ink2);
+      padding: 4px 0;
+    }
+    .sidebar-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* APPROACH STEPS */
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 0.5rem; }
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      padding-top: 2px;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .step-body {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* VIZ SECTION */
+    .viz-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .viz-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .viz-placeholder {
+      width: 100%;
+      min-height: 420px;
+      background: var(--surface);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 2rem;
+    }
+    .viz-placeholder-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .viz-placeholder p {
+      font-size: 14px;
+      color: var(--ink3);
+      margin: 0;
+    }
+    .viz-caption {
+      margin-top: 1rem;
+      font-size: 13px;
+      color: var(--ink3);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* FINDING */
+    .finding-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .finding-card {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    .finding-card p {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--bg);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .finding-card em { color: #E8A090; font-style: italic; }
+
+    /* FOOTER */
+    .page-footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-label {
+      font-size: 13px;
+      color: var(--ink3);
+    }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: #2e2c28; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink2);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-secondary:hover { background: var(--surface); color: var(--ink); }
+
+    /* EMBED NOTE */
+    .embed-note {
+      background: var(--accent-light);
+      border: 1px solid rgba(200,75,47,0.2);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 1rem;
+      font-family: var(--mono);
+    }
+
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .sidebar { display: none; }
+      .stats-row { grid-template-columns: 1fr 1fr; width: 100%; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell:nth-child(3) { border-top: 1px solid var(--border); grid-column: span 2; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-name">Your Name</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-meta">
+      <a href="/#projects" class="back-link">← Projects</a>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-category">NLP &amp; Data Visualization</span>
+    </div>
+    <h1>What makes news? Uncovering word patterns across <em>categories</em> using NLP</h1>
+    <p class="hero-desc">
+      News articles are published at massive scale every day. This project explores whether the vocabulary of a headline alone can reveal its topic — and what that tells us about how different types of news are written.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Python</span>
+      <span class="tag">NLP</span>
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">NLTK</span>
+      <span class="tag">TF-IDF</span>
+      <span class="tag">PCA</span>
+      <span class="tag">Plotly</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-val">100k</div>
+        <div class="stat-label">Headlines analyzed</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">8</div>
+        <div class="stat-label">News categories</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">3D</div>
+        <div class="stat-label">PCA visualization</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <div class="two-col">
+      <div>
+        <p class="section-eyebrow">The problem</p>
+        <h2>Why does news language matter?</h2>
+        <p>
+          Media companies and brands need to understand how news topics differ linguistically — whether to auto-tag content at scale, monitor which categories are covering their industry, or study how tone and vocabulary shift across audiences.
+        </p>
+        <p>
+          This project builds a foundation for that kind of analysis using unsupervised NLP, requiring no labelled training data beyond the category tags already attached to each headline.
+        </p>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-block-title">Potential applications</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>Automatic content tagging for publishers</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>Brand media monitoring by topic</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>Audience language profiling</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>Editorial bias detection</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-block-title">Dataset</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>labelled_newsc.csv</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>~100,000 headlines</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>8 topic categories</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="section-eyebrow">The approach</p>
+        <h2>From raw headlines to a word space</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">01</span>
+            <div>
+              <div class="step-title">Text cleaning &amp; preprocessing</div>
+              <p class="step-body">Removed stopwords, URLs, punctuation, and numeric tokens from raw headlines using NLTK and regex. Lowercased and normalised encoding artifacts.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">02</span>
+            <div>
+              <div class="step-title">Word frequency extraction per category</div>
+              <p class="step-body">Combined all headlines per topic and counted word frequencies using CountVectorizer. Words appearing fewer than 5 times were filtered to reduce noise.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <div>
+              <div class="step-title">TF-IDF normalisation</div>
+              <p class="step-body">Applied TF-IDF weighting to surface words that are distinctive to each category rather than just common across all news.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">04</span>
+            <div>
+              <div class="step-title">Dimensionality reduction &amp; visualisation</div>
+              <p class="step-body">Compressed the high-dimensional word frequency vectors using PCA to 3 components, then plotted each word as an interactive point coloured and sized by category using Plotly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-block-title">Key libraries</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>sklearn — TfidfVectorizer, CountVectorizer, PCA</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>nltk — stopwords, SnowballStemmer</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>plotly.express — interactive scatter</div>
+          <div class="sidebar-item"><span class="sidebar-dot"></span>pandas / numpy — data wrangling</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-section">
+      <div class="viz-header">
+        <div>
+          <p class="section-eyebrow">Interactive visualisation</p>
+          <h2 style="margin-bottom:0;">Explore the word space</h2>
+        </div>
+      </div>
+
+      <!--
+        REPLACE THIS PLACEHOLDER with your exported Plotly chart.
+
+        Steps:
+          1. In your Python script, add: fig.write_html("news-viz.html", full_html=False, include_plotlyjs='cdn')
+          2. Open news-viz.html, copy everything inside the file
+          3. Paste it here, replacing the div below
+
+        Or, if you saved it as a separate file, use an iframe:
+          <iframe src="news-viz.html" width="100%" height="500px" style="border:none;border-radius:12px;"></iframe>
+      -->
+
+      <div class="viz-placeholder">
+        <div class="viz-placeholder-icon">📊</div>
+        <p style="font-weight:500;color:var(--ink2);">Your interactive Plotly chart goes here</p>
+        <p>Hover over points to explore words — each point is a word, coloured by category, sized by frequency</p>
+      </div>
+
+      <div class="embed-note">
+        // To embed: fig.write_html("news-viz.html", full_html=False, include_plotlyjs='cdn')
+      </div>
+
+      <p class="viz-caption">Each point represents a word. Colour = news category. Size = frequency. Proximity = similarity in usage patterns across categories.</p>
+    </div>
+
+    <div class="finding-section">
+      <p class="section-eyebrow">Key finding</p>
+      <h2>What the clusters reveal</h2>
+      <p>The visualisation surfaces something intuitive but rarely quantified: news categories don't just differ in topic, they differ in <em>language culture</em>.</p>
+      <div class="finding-card">
+        <p>
+          Health and Science cluster <em>closely</em> in vocabulary space, while Sports and Business sit at opposite ends — suggesting that news language reflects not just topic, but underlying audience, tone, and rhetorical convention.
+        </p>
+      </div>
+      <p style="margin-top:1.25rem;">
+        These patterns could power an automatic content tagging system, a brand media monitoring tool, or a newsroom editorial assistant — anywhere that understanding the <em>texture</em> of language at scale provides an edge.
+      </p>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-label">Want to see the code?</span>
+    <div class="btn-row">
+      <a href="https://github.com/yourusername/news-nlp" class="btn btn-primary" target="_blank">View on GitHub ↗</a>
+      <a href="/#projects" class="btn btn-secondary">← Back to projects</a>
+    </div>
+  </footer>
+
+</body>
+</html>

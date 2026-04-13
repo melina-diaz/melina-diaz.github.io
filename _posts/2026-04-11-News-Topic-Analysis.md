@@ -6,10 +6,11 @@ date: 2026-04-11
 ## Why does news language matter?
 Every news category has its own vocabulary fingerprint. But which words do publishers actually lean on to capture attention and do those words differ across categories?
 <br>
-<br>
-This project quantifies those patterns by mapping 100,000 news headlines into a shared language space, revealing how Science, Business, Entertainment, Health, Sports, World Politics, and National Politics establish their own distinct corner.
 
  <!--more-->
+
+<br>
+This project quantifies those patterns by mapping 100,000 news headlines into a shared language space, revealing how Science, Business, Entertainment, Health, Sports, World Politics, and National Politics establish their own distinct corner.
 
 <br>
 <br>

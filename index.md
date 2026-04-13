@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 ---
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <div class="posts">

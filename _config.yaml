@@ -9,7 +9,10 @@ version: v1.2.0
 theme: minima
 
 excerpt_separator: <!--more-->
-
+sass:
+  sass_dir: _sass
+  style: expanded
+  
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

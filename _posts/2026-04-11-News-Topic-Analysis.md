@@ -8,6 +8,9 @@ Every news category has its own vocabulary fingerprint. But which words do publi
 <br>
 <br>
 This project quantifies those patterns by mapping 100,000 news headlines into a shared language space, revealing how Science, Business, Entertainment, Health, Sports, World Politics, and National Politics establish their own distinct corner.
+
+ <!--more-->
+
 <br>
 <br>
 *This post contains a summary and interactive visualizations of the project. For the code and more in-depth explanations, please see [my Github](https://github.com/melina-diaz/NewsArticles). Thank you!*

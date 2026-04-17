@@ -4,25 +4,22 @@ title: What makes news? Uncovering word patterns across categories using NLP
 date: 2026-04-11
 ---
 ## Why does news language matter?
-Every news category has its own vocabulary fingerprint. But which words do publishers actually lean on to capture attention and do those words differ across categories?
+Every news category has its own vocabulary fingerprint. Publishers chose words strategically, to signal relevance, evoke emotion, or frame a narrative.  But which words do publishers rely on most, and how do those words differ across categories?
 <br>
 
  <!--more-->
 
 <br>
-This project quantifies those patterns by mapping 100,000 news headlines into a shared language space, revealing how Science, Business, Entertainment, Health, Sports, World Politics, and National Politics establish their own distinct corner.
-
-<br>
+This project analyzes **108,000 news headlines** and maps them into 1 vocabulary space, revealing how categories like **Science, Business, Entertainment, Health, Sports, World Events, and National Events** establish their own distinct linguistic territory.
 <br>
 *This post contains a summary and interactive visualizations of the project. For the code and more in-depth explanations, please see [my Github](https://github.com/melina-diaz/NewsArticles). Thank you!*
 <br>
 <br>
 ## From raw headlines to visualization
 #### 1. Text cleaning & preprocessing
-Removed stopwords, URLs, punctuation, uppercase, and numeric characters from raw text using NLTK and regex.
-
+Cleaned text by removing stopwords, URLs, punctuation, uppercase, and numeric characters using NLTK and regex.
 #### 2. Word frequency extraction per category
-Combined all headlines per topic and counted word frequencies. Words appearing fewer than 5 times were filtered to reduce noise.
+Combined all headlines per category and counted word frequencies. Words appearing fewer than 5 times were filtered to reduce noise.
 
 #### 3. Normalization & reference points
 Normalize word frequency for each category to balance a dataset that's biased to certain categories. Include each category word ("Science", "Business", etc) as reference points.
@@ -36,13 +33,13 @@ Compressed 10,000 word frequencies using PCA to 3 components, then plotted each 
 {% include news_plotly_2D_scatter.html %} 
 {% include news_plotly_3D_scatter.html %} 
 
-Each word is a point, its position shows how it relates to every category reference point, which are different colors. Size reflects word frequency.
+Each word is a point, its position shows how it relates to every category reference point, which are different colors. Size reflects overall frequency.
 <br>
 
 *Hover* over the points to see the word represented and the frequency across the entire dataset.
 <br>
 
-*Click* on legend to filter points.
+*Click* on legend to filter points by color.
 <br>
 
 *Zoom in* to see more detail.

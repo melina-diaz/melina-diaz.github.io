@@ -34,7 +34,11 @@ Compressed 10,000 word frequencies using PCA to 3 components, then plotted each 
 <br>
 
 ## Interactive Visualizations
-Each blue point is a word that occurred 5+ times in the news title dataset. Its position shows how it relates to every category, which are the non-blue points. Its size reflects overall frequency. For example, you can think of the light red point at the top of the graph as the essense of the Sports news category. The words closeby like "arsenal" and "transfer" show that although they might be used in other news categories, they are used significantly more frequently in the Sports category. Words that are equidistant to 2 or more category points show that they are used about the same frequency between the categories. For example, "game" is equally between Sports and Technology. 
+Each blue point is a word that occurred 5+ times in the news title dataset. Its position shows how it relates to every category, which are the non-blue points. Its size reflects overall frequency. 
+<br>
+
+For example, you can think of the light red point at the top of the graph as the essense of the Sports news category. The words closeby like "arsenal" and "transfer" show that although they might be used in other news categories, they are used significantly more frequently in the Sports category. Words that are equidistant to 2 or more category points show that they are used about the same frequency between the categories. For example, "game" is equally between Sports and Technology. 
+<br>
 <br>
 Feel free to *hover* over points to see the represented word and frequency, use the icons on the top right of the graphs and *drag* to pan, rotate, or zoom, or *click* on the legend key to filter by color.
 {% include news_plotly_2D_scatter.html %} 

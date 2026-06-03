@@ -47,21 +47,21 @@ Feel free to *hover* over points to see the represented word and frequency, use 
 <br>
 
 ## Observations
-- There are not only relationships between the words and the categories, but also relationships between categories and other categories. Some categories live on the ends of the spectrum, while others significantly overlap. Health and World are the closest pair, while Entertainment and Sports are the farthest apart. (This is easier to notice in the 3D graph rather than the 2D.) In fact, Science, Health, World, and Nation are all clustered together, suggesting there are a lot of overlapping words between these categories. In the context of August 2020, that makes sense and is supported by the most frequent words within the cluster being "coronavirus" (5566 times), "vaccine" (1533), and "covid" (1397).
+- There are not only relationships between the words and the categories, but also relationships between categories and other categories. Some categories live on the ends of the spectrum, while others significantly overlap. Health and World are the closest pair, while Entertainment and Sports are the farthest apart. (This is easier to notice in the 3D graph rather than the 2D.) In fact, **Science, Health, World, and Nation** are all clustered together, suggesting there are a lot of overlapping words between these categories. In the context of August 2020, that makes sense and is supported by the most frequent words within the cluster being "coronavirus" (5566 times), "vaccine" (1533), and "covid" (1397).
 
   
 - Categories can be defined by the highest frequency words that are unique to the category.
-    - Among the Sports-unique words, "league" (1214) and "transfer" (1068) have the highest frequencies. 
-    - Among the Entertainment-unique words, most words are under frequencies of 300. "prince" (443), "birthday" (386) and "meghan" (356) seem to be the only outliers. 
-    - Among the Technology-unique words, "apple" (1206), "google" (1100), "galaxy" (950) have the highest frequencies. There are many other brand names too.
-    - Among the Business-unique words, "market" (3435) has the highest frequency.
-    - Among the Science-unique words, "nasa" (461) and "mars" (353) have the highest frequencies.
-    - Among the Health-unique words, "us" (2369), "study"(1467), and "scientists" (743) have the highest frequencies. Because we removed punctuation in text cleaning, "us" could be referring to "us" and/or "U.S."
+    - Among the Sports-unique words, **"league"** (1214) and **"transfer"** (1068) have the highest frequencies. 
+    - Among the Entertainment-unique words, most words are under frequencies of 300. **"prince"** (443), **"birthday"** (386) and **"meghan"** (356) seem to be the only outliers. Prince Harry and Meghan announced moving to California in August 2020.
+    - Among the Technology-unique words, **"apple"** (1206), **"google"** (1100), **"galaxy"** (950) have the highest frequencies. There are many other brand names too.
+    - Among the Business-unique words, **"market"** (3435) has the highest frequency.
+    - Among the Science-unique words, **"nasa"** (461) and **"mars"** (353) have the highest frequencies.
+    - Among the Health-unique words, **"us"** (2369), **"study"**(1467), and **"scientists"** (743) have the highest frequencies. Because we removed punctuation in text cleaning, "us" could be referring to "us" and/or "U.S."
     - Among the World-unique words, there aren't really many words clustered around like other categories. The frequencies are mostly under 200. Perhaps World news covers such a broad scope of places and topics that there aren't words solely used by this category.
-    - Among the Nation-unique words, "police" (792) has the highest frequency.
+    - Among the Nation-unique words, **"police"** (792) has the highest frequency.
 
  
-- There are a lot of proper nouns amongst these category-unique high frequency words, signifying that specificity matters. A news headline might reel the reader into the rest of the article by sharing the who and what, rather than the how and why. 
+- There are a lot of proper nouns amongst these category-unique high frequency words, signifying that specificity matters. A news headline might reel the reader into the rest of the article by sharing the **who and what**, rather than the **how and why**. 
 <br>
 <br>
 

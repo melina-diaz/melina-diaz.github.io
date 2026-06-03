@@ -47,7 +47,7 @@ Feel free to *hover* over points to see the represented word and frequency, use 
 <br>
 
 ## Observations
-- There are not only relationships between the words and the categories, but also relationships between categories and other categories. Some categories live on the ends of the spectrum, while others significantly overlap. Health and World are the closest pair, while Entertainment and Sports are the farthest apart. (This is easier to notice in the 3D graph rather than the 2D.) In fact, **Science, Health, World, and Nation** are all clustered together, suggesting there are a lot of overlapping words between these categories. In the context of August 2020, that makes sense and is supported by the most frequent words within the cluster being "coronavirus" (5566 times), "vaccine" (1533), and "covid" (1397).
+- There are not only relationships between the words and the categories, but also relationships between categories and other categories. Some categories live on the ends of the spectrum, while others significantly overlap. Health and World are the closest pair, while Entertainment and Sports are the farthest apart. (This is easier to notice in the 3D graph rather than the 2D.) In fact, **Science, Health, World, and Nation** are all clustered together, suggesting there are a lot of overlapping words between these categories. In the context of August 2020, that makes sense and is supported by the most frequent words within the cluster being **"coronavirus"** (5566 times), **"vaccine"** (1533), and **"covid"** (1397).
 
   
 - Categories can be defined by the highest frequency words that are unique to the category.
@@ -58,9 +58,8 @@ Feel free to *hover* over points to see the represented word and frequency, use 
     - Among the Science-unique words, **"nasa"** (461) and **"mars"** (353) have the highest frequencies.
     - Among the Health-unique words, **"us"** (2369), **"study"**(1467), and **"scientists"** (743) have the highest frequencies. Because we removed punctuation in text cleaning, "us" could be referring to "us" and/or "U.S."
     - Among the World-unique words, there aren't really many words clustered around like other categories. The frequencies are mostly under 200. Perhaps World news covers such a broad scope of places and topics that there aren't words solely used by this category.
-    - Among the Nation-unique words, **"police"** (792) has the highest frequency.
-
- 
+    - Among the Nation-unique words, **"police"** (792) has the highest frequency. Although the police's relation to Black Lives Matter is a significant topic in 2020 U.S. news, these events fall largely outside of the dataset's scope, the first half of August 2020. This suggests that "police" is a ubiquitous topic across time and countries, maintaining steady coverage rather than a few monumental stories.
+  
 - There are a lot of proper nouns amongst these category-unique high frequency words, signifying that specificity matters. A news headline might reel the reader into the rest of the article by sharing the **who and what**, rather than the **how and why**. 
 <br>
 <br>

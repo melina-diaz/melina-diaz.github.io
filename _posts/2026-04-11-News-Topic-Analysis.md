@@ -10,7 +10,7 @@ Each news category has its own vocabulary. Publishers chose words strategically 
  <!--more-->
 
 <br>
-This project analyzes **108,000 news headlines** all from the 1st half of August 2020, and maps them into 1 vocabulary space, revealing how categories like **Science, Business, Entertainment, Health, Sports, World Events, and National Events** establish their own distinct linguistic territory.
+This project analyzes **108,000 news headlines** all from the first half of August 2020, and maps them into 1 vocabulary space, revealing how categories like **Science, Business, Entertainment, Health, Sports, World Events, and National Events** establish their own distinct linguistic territory.
 <br>
 <br>
 *This post contains a summary and interactive visualizations of the project. For the code and more in-depth explanations, please see [my Github](https://github.com/melina-diaz/NewsArticles). Thank you!*
@@ -59,6 +59,7 @@ Feel free to *hover* over points to see the represented word and frequency, use 
     - Among the Health-unique words, **"us"** (2369), **"study"**(1467), and **"scientists"** (743) have the highest frequencies. Because we removed punctuation in text cleaning, "us" could be referring to "us" and/or "U.S."
     - Among the World-unique words, there aren't really many words clustered around like other categories. The frequencies are mostly under 200. Perhaps World news covers such a broad scope of places and topics that there aren't words solely used by this category.
     - Among the Nation-unique words, **"police"** (792) has the highest frequency. Although the police's relation to Black Lives Matter is a significant topic in 2020 U.S. news, these events fall largely outside of the dataset's scope, the first half of August 2020. This suggests that "police" is a ubiquitous topic across time and countries, maintaining steady coverage rather than a few monumental stories.
+
   
 - There are a lot of proper nouns amongst these category-unique high frequency words, signifying that specificity matters. A news headline might reel the reader into the rest of the article by sharing the **who and what**, rather than the **how and why**. 
 <br>

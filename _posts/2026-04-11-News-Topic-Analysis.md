@@ -34,13 +34,13 @@ Compressed 10,000 word frequencies using PCA to 3 components, then plotted each 
 <br>
 
 ## Interactive Visualizations
-Each blue point is a word that occurred 5+ times in the news title dataset. Its position shows how it relates to every category, which are the non-blue points. Its size reflects overall frequency. 
+Each blue point is a word that occurred 5+ times in the news title dataset. Its position shows how it relates to every category, which are the non-blue points. Its size reflects overall frequency.
 <br>
+- For example, you can think of the light red point at the top of the graph as the essense of the Sports news category. The words closeby like "arsenal" and "transfer" show that although they might be used in other news categories, they are used significantly more frequently in the Sports category. Words that are equidistant to 2 or more category points show that they are used about the same frequency between the categories. For example, "game" is equally between Sports and Technology.
 
-For example, you can think of the light red point at the top of the graph as the essense of the Sports news category. The words closeby like "arsenal" and "transfer" show that although they might be used in other news categories, they are used significantly more frequently in the Sports category. Words that are equidistant to 2 or more category points show that they are used about the same frequency between the categories. For example, "game" is equally between Sports and Technology. 
-<br>
-<br>
-Feel free to *hover* over points to see the represented word and frequency, use the icons on the top right of the graphs and *drag* to pan, rotate, or zoom, or *click* on the legend key to filter by color.
+> [!TIP]
+> Feel free to *hover* over points to see the represented word and frequency, use the icons on the top right of the graphs and *drag* to pan, rotate, or zoom, or *click* on the legend key to filter by color.
+
 {% include news_plotly_2D_scatter.html %} 
 {% include news_plotly_3D_scatter.html %} 
 
@@ -49,6 +49,7 @@ Feel free to *hover* over points to see the represented word and frequency, use 
 
 ## Observations
 - There are not only relationships between the words and the categories, but also relationships between categories and other categories. Health and World are the closest pair, while Entertainment and Sports are the farthest apart. (This is easier to notice in the 3D graph rather than the 2D.) In fact, Science, Health, World, and Nation are all clustered together, suggesting there are a lot of overlapping words between these categories. In the context of August 2020, that makes sense and is supported by the most frequent words within the cluster being "coronavirus" (5566 times), "vaccine" (1533), and "covid" (1397).
+  <br>
 - The highest frequencies among the words most unique to a category greatly vary.
     - Among the Sports-unique words, "league" (1214) and "transfer" (1068) have the highest frequencies. 
     - Among the Entertainment-unique words, most words are under frequencies of 300. "prince" (443), "birthday" (386) and "meghan" (356) seem to be the only outliers. 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What makes news? Uncovering word patterns across categories using NLP
+title: What makes news? Uncovering word patterns across categories using Natural Language Processing (NLP)
 date: 2026-04-11
 ---
 ## Why does news language matter?
@@ -29,7 +29,7 @@ Combined all headlines per category and counted word frequencies. Words appearin
 Normalize word frequency for each category to balance a dataset that's biased to certain categories. Include each category word ("Science", "Business", etc) as reference points.
 
 #### 4. Dimensionality reduction & visualization
-Compressed 10,000 word frequencies using PCA to 3 components, then plotted each word in a Plotly scatterplot.
+Compressed 10,000 word frequencies using Principal Component Analysis (PCA) to 3 components, then plotted each word in a Plotly scatterplot.
 
 <br>
 
